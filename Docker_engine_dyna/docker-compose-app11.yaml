@@ -1,0 +1,40 @@
+networks:
+  reseau: null
+services:
+  app11_l0:
+    build:
+      context: /home/toto/stage/Docker_engine_dyna/app11/app11_l0
+      dockerfile: dockerfile
+    container_name: app11_l0
+    networks:
+    - reseau
+    volumes:
+    - /home/toto/stage/Docker_engine_dyna/app11/logs:/app/logs
+  app11_l1:
+    build:
+      context: /home/toto/stage/Docker_engine_dyna/app11/app11_l1
+      dockerfile: dockerfile
+    container_name: app11_l1
+    networks:
+    - reseau
+    volumes:
+    - /home/toto/stage/Docker_engine_dyna/app11/logs:/app/logs
+  app11_s0:
+    build:
+      context: /home/toto/stage/Docker_engine_dyna/app11/app11_s0
+      dockerfile: dockerfile
+    container_name: app11_s0
+    networks:
+    - reseau
+    volumes:
+    - /home/toto/stage/Docker_engine_dyna/app11/logs:/app/logs
+  app11_t0:
+    build:
+      context: /home/toto/stage/Docker_engine_dyna/app11/app11_t0
+      dockerfile: dockerfile
+    container_name: app11_t0
+    networks:
+    - reseau
+    volumes:
+    - /home/toto/stage/Docker_engine_dyna/app11/logs:/app/logs
+version: '3'

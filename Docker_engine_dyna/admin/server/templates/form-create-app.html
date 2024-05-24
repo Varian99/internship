@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/form.css')}}">
+    <script src="{{url_for('static', filename='js/script-form.js')}}"></script>
+    <title>Gateway Admin</title>
+</head>
+<body>
+    <div id="container" class="center-content">
+        <h1>Form to create an new application</h1>
+
+        <form class="form" action="{{ url_for('form_create_app') }}" method="post">
+            <label class="label" for="appName">Application name</label>
+            <input class="input" type="text" id="appName" name="appName" required style="width: 1175px"><br><br>
+        
+            <label class="label" for="listeners">Listener container(s)</label>
+            <div id="listener-container">
+                <input class="input" type="text" name="listenersName[]" placeholder="Listener container name" required style="width: 260px">
+                <select class="input" name="listenersProto[]" required style= "width: 250px">
+                    <option value="" disabled selected hidden>Select a protocol</option>
+                    <option value="wifi">Wifi</option>
+                    <option value="bluetooth">Bluetooth</option>
+                    <option value="lorawan">Lorawan</option>
+                </select>
+                <input class="input" type="number" name="listenersProtoPort[]" placeholder="Port" required style="width: 150px">            
+                <button type="button" onclick="addListenerField()" class="add-button">Add listener container</button>
+                <button type="button" onclick="removeListenerField()" class="remove-button">Remove listener container</button>
+            </div><br><br>
+
+            <label class="label" for="treatments">Treatment container(s)</label>
+            <div id="treatment-container">
+                <input class="input" type="text" name="treatmentsName[]" placeholder="Treatment container name" required style="width: 350px">
+                <button type="button" onclick="addTreatmentField()" class="add-button">Add treatment container</button>
+                <button type="button" onclick="removeTreatmentField()" class="remove-button">Remove treatment container</button>
+            </div><br><br>
+
+            <label class="label" for="senders">Sender container(s)</label>
+            <div id="sender-container">
+                <input class="input" type="text" name="sendersName[]" placeholder="Sender container name" required style="width: 750px">
+                <button type="button" onclick="addSenderField()" class="add-button">Add sender container</button>
+                <button type="button" onclick="removeSenderField()" class="remove-button">Remove sender container</button>
+            </div><br><br>
+
+            <input class="button" type="submit" value="Create new application">
+        </form>
+    </div>
+
+</body>
+</html>

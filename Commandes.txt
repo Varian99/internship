@@ -1,0 +1,4 @@
+docker rm $(docker ps -aq)
+docker stop 
+docker rm
+docker ps -a | grep 'app11' | awk '{print $1}' | xargs docker rm -f

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/form.css')}}">
+    <title>Gateway admin</title>
+</head>
+<body>
+    <div id="container" class="center-content">
+        <h1>Information</h1>
+        {% for message in info_message_list %}
+            <p>{{ message }}</p><br>
+        {% endfor %}
+        <br><p>{{ info_message }}</p>
+        <a href="{{ url_for('index') }}">Retour à l'accueil</a>
+    </div>
+</body>
+</html>

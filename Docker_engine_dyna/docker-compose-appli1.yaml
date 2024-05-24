@@ -1,0 +1,44 @@
+networks:
+  reseau: 
+services:
+  T1_appli1:
+    build:
+      context: ./appli1/T1_appli1
+      dockerfile: Dockerfile
+    networks:
+    - reseau
+    volumes:
+    - ./appli1/logs:/app/logs
+  T2_appli1:
+    build:
+      context: ./appli1/T2_appli1
+      dockerfile: Dockerfile
+    networks:
+    - reseau
+    volumes:
+    - ./appli1/logs:/app/logs
+  listener_appli1:
+    build:
+      context: ./appli1/listener_appli1
+      dockerfile: Dockerfile
+    networks:
+    - reseau
+    volumes:
+    - ./appli1/logs:/app/logs
+  sender_appli1:
+    build:
+      context: ./appli1/sender_appli1
+      dockerfile: Dockerfile
+    networks:
+    - reseau
+    volumes:
+    - ./appli1/logs:/app/logs
+  t0_appli1:
+    build:
+      context: ./appli1/t0_appli1
+      dockerfile: Dockerfile
+    networks:
+    - reseau
+    volumes:
+    - ./appli1/logs:/app/logs
+version: '3'

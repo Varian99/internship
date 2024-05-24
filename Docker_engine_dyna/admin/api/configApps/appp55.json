@@ -1,0 +1,22 @@
+{
+    "id": "appp55",
+    "in": [
+        {
+            "nameListener0": "fzfe",
+            "pubTopListener0": "fzefzfe",
+            "protocolListener0": "bluetooth",
+            "portListener0": "25"
+        }
+    ],
+    "treat": [
+        {
+            "nameTreatment0": "jocae",
+            "pubTopTreatment0": "nbhuu"
+        }
+    ],
+    "out": [
+        {
+            "nameSender0": "oj"
+        }
+    ]
+}

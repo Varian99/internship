@@ -1,0 +1,18 @@
+networks:
+  reseau: null
+services:
+  mosquitto:
+    build:
+      context: ./mosquitto
+      dockerfile: Dockerfile
+    container_name: mosquitto
+    networks:
+    - reseau
+    ports:
+    - 1885:1885
+    restart: always
+    volumes:
+    - ./mosquitto/config:/mosquitto/config
+    - ./mosquitto/data:/mosquitto/data
+    - ./mosquitto/logs:/mosquitto/logs
+version: '3'

@@ -1,0 +1,29 @@
+{
+    "app" : [{
+          "id": "appli1",
+          "in": {
+              "nameListener": "listener"
+          },
+          "treat" : {
+              "nameT0" : "t0",
+              "nameT1" : "t1",
+              "nameT2" : "t2"
+          },
+          "out" : {
+              "nameSender": "sender"
+          }
+      },
+      {
+          "id": "appli2",
+          "in": {
+              "nameListener": "listener"
+          },
+          "treat" : {
+              "nameT0" : "t0",
+              "nameT1" : "t1"
+          },
+          "out" : {
+              "nameSender": "sender"
+          }
+      }]
+  }

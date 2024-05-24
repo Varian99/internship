@@ -1,0 +1,37 @@
+networks:
+  reseau:
+services:
+  listener_appli2:
+    container_name: listener_appli2
+    build:
+      context: ./appli2/listener_appli2
+      dockerfile: dockerfile
+    networks:
+    - reseau
+    volumes:
+    - ./appli2/logs:/app/logs
+  sender_appli2:
+    build:
+      context: ./appli2/sender_appli2
+      dockerfile: dockerfile
+    networks:
+    - reseau
+    volumes:
+    - ./appli2/logs:/app/logs
+  t0_appli2:
+    build:
+      context: ./appli2/t0_appli2
+      dockerfile: dockerfile
+    networks:
+    - reseau
+    volumes:
+    - ./appli2/logs:/app/logs
+  t1_appli2:
+    build:
+      context: ./appli2/t1_appli2
+      dockerfile: dockerfile
+    networks:
+    - reseau
+    volumes:
+    - ./appli2/logs:/app/logs
+version: '3'

@@ -1,0 +1,12 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY ./requirements-admin.txt /app/
+
+RUN pip install -r requirements-admin.txt
+
+COPY ./api/api.py /app/
+COPY ./api/container.py /app/
+
+CMD ["python", "api.py"]

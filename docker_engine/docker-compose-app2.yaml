@@ -1,0 +1,31 @@
+version: '3'
+services:
+  listener2:
+    build:
+      context: ./app2/listener2
+      dockerfile: Dockerfile
+    networks:
+      - reseau
+    volumes:
+      - ./app2/logs:/app/logs
+      
+  treatment2.1:
+    build:
+      context: ./app2/treatment2.1
+      dockerfile: Dockerfile
+    networks:
+      - reseau
+    volumes:
+      - ./app2/logs:/app/logs
+
+  sender2:
+    build:
+      context: ./app2/sender2
+      dockerfile: Dockerfile
+    networks:
+      - reseau
+    volumes:
+      - ./app2/logs:/app/logs
+
+networks:
+  reseau:

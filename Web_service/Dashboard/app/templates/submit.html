@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var counter = 1;
+
+            $("#addAppBtn").click(function() {
+                counter++;
+                var html = '<h2>Application ' + counter + '</h2>' +
+                    '<label for="app_id_' + counter + '">App ID:</label><br>' + 
+                    '<input type="text" id="app_id_' + counter + '" name="app_id_' + counter + '"><br>' +
+                    '<label for="nameListener_' + counter + '">Name Listener:</label><br>' +
+                    '<input type="text" id="nameListener_' + counter + '" name="nameListener_' + counter + '"><br>';
+                    
+                // Génération dynamique des champs nameT
+                for (var i = 0; i < 3; i++) {
+                    html += '<label for="nameT' + i + '_' + counter + '">Name T' + i + ':</label><br>' +
+                            '<input type="text" id="nameT' + i + '_' + counter + '" name="nameT' + i + '_' + counter + '"><br>';
+                }
+                
+                html += '<label for="nameSender_' + counter + '">Name Sender:</label><br>' +
+                        '<input type="text" id="nameSender_' + counter + '" name="nameSender_' + counter + '"><br><br>';
+                $("#appFields").append(html);
+            });
+
+            $("#removeAppBtn").click(function() {
+                if (counter > 1) {
+                    $("#appFields h2:last").remove();
+                    $("#appFields label:last").remove();
+                    $("#appFields input:last").remove();
+                    counter--;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form action="/form" method="post">
+        <div id="appFields">
+            <h2>Application 1</h2>
+            <label for="app_id_1">App ID:</label><br>
+            <input type="text" id="app_id_1" name="app_id_1"><br>
+            <label for="nameListener_1">Name Listener:</label><br>
+            <input type="text" id="nameListener_1" name="nameListener_1"><br>
+            
+            <!-- Génération dynamique des champs nameT -->
+            <label for="nameT0_1">Name T0:</label><br>
+            <input type="text" id="nameT0_1" name="nameT0_1"><br>
+            <label for="nameT1_1">Name T1:</label><br>
+            <input type="text" id="nameT1_1" name="nameT1_1"><br>
+            <label for="nameT2_1">Name T2:</label><br>
+            <input type="text" id="nameT2_1" name="nameT2_1"><br>
+            
+            <label for="nameSender_1">Name Sender:</label><br>
+            <input type="text" id="nameSender_1" name="nameSender_1"><br>
+        </div>
+        <button type="button" id="addAppBtn">Add Application</button>
+        <button type="button" id="removeAppBtn">Remove Last Application</button>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

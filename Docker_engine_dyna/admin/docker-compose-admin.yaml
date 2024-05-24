@@ -1,0 +1,23 @@
+version: '3'
+services:
+  server-admin:
+    container_name: server-admin
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile
+    volumes:
+      - ./server:/app
+    ports:
+      - "5000:5000"
+
+  api-admin:
+    container_name: api-admin
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    volumes:
+      - ./api/configApps:/app/configApps
+      - ../../docker-engine:/app/appContainer
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "5001:5000"

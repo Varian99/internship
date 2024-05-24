@@ -1,0 +1,34 @@
+version: '3'
+services:
+  appp55-fzfe:
+    container_name: appp55-fzfe
+    build:
+      context: .
+      dockerfile: ./appp55/fzfe/Dockerfile
+    volumes:
+      - ./appp55/logs:/appp55/logs
+    networks:
+      - my_network
+
+  appp55-jocae:
+    container_name: appp55-jocae
+    build:
+      context: .
+      dockerfile: ./appp55/jocae/Dockerfile
+    volumes:
+      - ./appp55/logs:/appp55/logs
+    networks:
+      - my_network
+
+  appp55-oj:
+    container_name: appp55-oj
+    build:
+      context: .
+      dockerfile: ./appp55/oj/Dockerfile
+    volumes:
+      - ./appp55/logs:/appp55/logs
+    networks:
+      - my_network
+
+networks:
+  my_network:
