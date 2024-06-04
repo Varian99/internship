@@ -55,7 +55,7 @@ sudo usermod -aG docker toto
 Now that Docker is installed, you can clone this project.
 With Git installed on your machine, you need to run this command inside the folder you want the project to be.
 ```bash
-git clone https://github.com/Varian99/stage.git
+git clone https://github.com/Varian99/internship.git
 ```
 ## Fonctionnalities
 
